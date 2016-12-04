@@ -1,0 +1,332 @@
+\chapter{Vectors}
+
+Vectors are some of the most important objects in mathematics, and the study of vectors is at the core of linear algebra. However, the term "vector" doesn't mean the same thing to everyone. If you were to ask a physicist, they would tell you a vector is a mathematical object that has length and direction.\footnote{A more erudite physicist may also define a vector as something that transforms like a vector under orthogonal transformations. More on this confusing statement later.} A computer scientist would say a vector is an ordered sequence of numbers. A mathematician would tell you a vector is an object that satisfies the axioms of a vector space.
+
+What makes linear algebra so powerful is that the tools of linear algebra work regardless of which viewpoint you adopt. In fact, there are times when thinking in terms each of these definitions will be the most useful. This chapter will begin by defining vectors in each of these paradigms, and then explore the algebraic properties of vectors,
+
+\section{A Physicist's Perspective: Vectors as Directed Line Segments}
+
+Take it is as a given that humans live in 3D space. What we mean by three-dimensional space will be treated formally later. For now, we'll take as a working definition of 3D space that we need three coordinates to specify the location of a point in 3D space.\footnote{It turns out the "three coordinates to specify a point" in 3D is entirely false. The mathematician David Hilbert showed that is possible to describe a position in 3D space with only 1 coordinate. This gives us a compelling reason to more formally define what it means to be three-dimensional. More on this later.} Given this definition of 3D make the following definition:
+
+\begin{definition}[Vector in Three Dimensions]
+	A \textbf{vector} in three dimensions is a directed line segment in 3D space. By "line segment" we mean a contiguous section of a line with finite length, and by "directed" we mean that one endpoint of the line segment is the \textbf{tail} and the other endpoint is the \textbf{tip}. We think of a vector as going from its tail to it's tip.
+\end{definition}
+
+We usually denote vectors by lower case letters ($u$, $v$, and $w$ in particular are quite popular) with an arrow above them (i.e. $\vec{u}, \vec{v}, \vec{w}$). Other texts use boldface in lieu of the arrow and still other texts use no typographic indication to distinguish vectors from numbers.
+
+As we will see (or as you may have already since in physics), vectors are a very important construct. We will often want to use vectors in 1D and 2D physics problem as well as 3D problems. Further, some models of physics consider higher dimensional spaces.\footnote{General relativity, for example, is based on four dimensional Minkowski space.} Thus, we want to extend our definition of vectors to any dimensional space.
+
+\begin{definition}[Vector in $n$ Dimensions]
+	A \textbf{vector} in $n$ dimensions is a directed line segment in $n$-dimensional space.
+\end{definition}
+
+What makes vectors useful is that we can also define operations like addition, subtraction, and multiplication on vectors. Before we define these operations, however, we must define what we mean by equality of vectors.
+
+\begin{definition}[Equality of Vectors]
+	Two vectors are said to be \textbf{equal} with they have the same length and same direction. An equivalent way of defining equality is to say two vectors $\vec{v}$ and $\vec{w}$ are equal if we can move $\vec{v}$ on top of $\vec{w}$ such that the tail of $\vec{v}$ is on the tail of $\vec{w}$ and the tip of $\vec{v}$ is on the tip of $\vec{w}$.
+\end{definition}
+
+What this means is that where a vector is placed in $n$-dimensional space doesn't matter---all that matters is its length and its direction. For convenience, we generally draw vectors with their tails at the \textbf{origin}, which is just an arbitrary point in space from which we orient ourselves.
+
+\begin{proposition}
+	Let an origin $O$ be given. For every point $P$ in space, there is a unique vector $\vec{x}_P$ such that the tip of $\vec{x}_P$ lies on $P$ when the tail of $\vec{x}_P$ is placed on $O$. $\vec{x}_P$ is said to be the \textbf{position vector} of $P$.
+\end{proposition}
+
+Thus, once we fix an origin $O$, every point has a unique position vector and every vector corresponds to a unique position. We can now go about defining addition of vectors.
+
+\begin{definition}[Addition of Vectors]
+	Let $\vec{u}$ and $\vec{v}$ be vectors. The \textbf{sum} of $\vec{u}$ and $\vec{v}$ is a new vector $\vec{u}+\vec{v}$ obtained by placing the tail of $\vec{v}$ on the tip of $\vec{u}$ and drawing a new vector from the tail of $\vec{v}$ to the tip of $\vec{u}$.
+\end{definition}
+
+How is this definition useful? Consider the following thought experiment. Suppose I begin at a point $P$ and walk in a straight line to a point $Q$. Let $\vec{y}$ be the vector from $P$ to $Q$, and $\vec{x}_P$ be the position vector of $P$. Then the position vector of $Q$ is $\vec{x}_Q = \vec{x}_P + \vec{y}$.
+
+\begin{proposition}
+	Addition of vectors is commutative. That is, for all vectors $\vec{u}$ and $\vec{v}$, $\vec{u} + \vec{v} = \vec{v} + \vec{u}$.
+\end{proposition}
+
+To convince yourself of this, draw yourself a picture representing $\vec{u}+\vec{v}$ and $\vec{v} + \vec{u}$ in two dimensions. Do you see why addition must be commutative?
+
+There is a special vector, which we will call $\vec{0}$ such that $\vec{v} + \vec{0} = \vec{v}$ for all vectors $\vec{v}$. This "zero vector" corresponds to the vector for which the tail and the tip are the same point. The zero vector is the only vector with 0 length.
+
+We now go about defining vector subtraction. Think about subtraction of counting numbers using a number line. If we want to subtract $3$ from $5$, we simply start at the position 5 and move three steps to the left to get $2$. Another way of thinking about subtracting 3 from 5 is to introduce negative numbers. Then $5 - 3$ is just the same as saying $5 + (-3)$ which is 2. The number $-3$ means count three to the left, where positive $3$ means count three to the right. Notice, if we add $3$ and $-3$ we get 0. Since $-3$ is the number you add to $3$ to get $0$, we say $-3$ is the \textbf{additive inverse} of $3$. In the same way, every vector $\vec{v}$ has an additive inverse $-\vec{v}$.
+
+\begin{proposition}
+	For every vector $\vec{v}$ there is a unique vector $-\vec{v}$ such that $\vec{v} + (-\vec{v}) = \vec{0}$.
+\end{proposition}
+
+\begin{proof}
+	Say $\vec{v}$ goes from the origin $O$ to a point $P$. Let $-\vec{v}$ be the vector from $P$ to $O$. Then, clearly by definition of addition, $\vec{v} + (-\vec{v}) = \vec{0}$. Uniqueness follows immediately from the definition of vector equality.
+\end{proof}
+
+The geometric interpretation of $-\vec{v}$ is clear: $-\vec{v}$ is the vector with the same length of $\vec{v}$ and the exact opposite direction.
+
+\begin{proposition}
+	For all vectors $\vec{v}$,
+	$$
+	\vec{v} = -(-\vec{v}).
+	$$
+	That is, the additive inverse of the additive inverse of $\vec{v}$ is $\vec{v}$. Additionally, 
+	$$
+	\vec{0} = -\vec{0}
+	$$
+	And $\vec{0}$ is the only vector equal to its own inverse.
+\end{proposition}
+
+Having defined the additive inverse, the definition of subtraction is obvious.
+
+\begin{definition}[Subtraction of Vectors]
+	Let $\vec{u}$ and $\vec{v}$ be vectors. Then
+	$$\vec{u} - \vec{v} = \vec{u} + (-\vec{v})$$
+\end{definition}
+
+Having defined vector-vector addition and subtraction, we naturally move on to multiplication. It turns out that there isn't a simple geometric way to multiply two vectors. We will study two types of vector-vector multiplication later.\footnote{Both of these vector-vector multiplications---the dot and cross products---have unsatisfactory properties. The dot product of two vectors is not a vector at all, but a real number, The cross product of two vectors is another vector, but the cross product is only defined for vectors in 3D and isn't commutative or associative.} There is, however, a way of defining number-vector multiplication in a natural way.
+
+\begin{definition}[Scalar Multiplication]
+	Let $\vec{u}$ be a vector. If $c \ge 0$, then $c\vec{u}$ is a vector with the same direction as $\vec{u}$ with $c$ times the length of $\vec{u}$. If $c < 0$, then $c\vec{u} = (-c)(-\vec{u})$.
+\end{definition}
+
+That is, $c\vec{v}$ is the vector $\vec{v}$ scaled to be $|c|$ times as long, with its direction flipped if $c < 0$. Since the real number $c$ scales the vector $\vec{v}$ we say $c$ a \textbf{scalar}. In fact, since scaling vectors is something real numbers often do in linear algebra, we say all real numbers are scalars. We call scalar-vector multiplication "scalar multiplication". 
+
+\begin{proposition}
+	For all vectors $\vec{v}$,
+	\begin{align*}
+	1 \vec{v} &= \vec{v} \\
+	(-1) \vec{v} &= -\vec{v} \\
+	0 \vec{v} &= \vec{0}
+	\end{align*}
+\end{proposition}
+
+\begin{proposition}[Distributive Laws]
+	For all real numbers $c$ and $d$ and vectors $\vec{v}$ and $\vec{u}$,
+	\begin{align*}
+	c(\vec{u}+ \vec{v}) = c\vec{u} + c\vec{v} \\
+	(c+d)\vec{u} = c \vec{u} + d\vec{u}
+	\end{align*}
+\end{proposition}
+
+\begin{proposition}[Associative Law]
+	For all real numbers $c$ and vectors $\vec{v}$ and $\vec{u}$,
+	\begin{align*}
+	(cd)\vec{v} &= c(d\vec{v}) 
+	\end{align*}
+\end{proposition}
+
+In summary, vectors (as we've defined them here) have the following properties.
+
+\begin{theorem}\label{thm:vecprops}
+	Vectors, defined as directed line segments in $n$-dimensional space, satisfy the following properties:
+	\begin{enumerate}
+		\item $\vec{u} + \vec{v}$ is a vector in $n$-dimensional space
+		\item $\vec{u} + \vec{v} = \vec{v} + \vec{u}$
+		\item $(\vec{u}+\vec{v}) + \vec{w} = \vec{u} + (\vec{v}+\vec{w})$
+		\item There is a vector $\vec{0}$ such that, for all $\vec{u}$, $\vec{u} + \vec{0} = \vec{u}$
+		\item For every vector $\vec{u}$ there is a vector $-\vec{u}$ such that $\vec{u} + (-\vec{u}) = \vec{0}$
+		\item $c\vec{u}$ is a vector in $n$-dimensional space
+		\item $(cd)\vec{u} = c(d\vec{u})$
+		\item $(c+d)\vec{u} = c\vec{u} + d\vec{u}$
+		\item $c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}$
+		\item $1\vec{u} = \vec{u}$
+	\end{enumerate}
+\end{theorem}
+
+\section{A Computer Scientist's Perspective: Vectors as Ordered Lists}
+
+In the \verb|C++| programming language, a vector is a container object which stores an ordered sequence of other objects. In \verb|C++|, these objects can be anything the programmer wants---integers, real numbers, strings, student records, and even other vectors. In mathematics, for the moment at least, we will restrict ourselves to real numbers. This leads us to make an entirely different definition of vectors:
+
+\begin{definition}[Vector in $n$ Dimensions]
+	A \textbf{vector} in $n$ dimensions is an ordered list of $n$ real numbers.
+\end{definition}
+
+Mathematicians, always fond of notational shorthand, use $\mathbb{R}$ to denote the set of real numbers. Since $n$-dimensional vectors are just lists of $n$ real numbers, we use the notation $\mathbb{R}^n$ to denote the set of all $n$-dimensional vectors. Several notation are used for $n$-dimensional vector. Let $\vec{v}$ be an $n$-dimensional vector. Then $v_1$ is the first element, $v_2$ is the second element, and $v_n$ is the $n$th element. The vector $\vec{v}$ is notated by any of the following
+
+$$
+\vec{v} = \begin{bmatrix} v_1 & v_2 & \cdots & v_n \end{bmatrix} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = (v_1, v_2, \ldots, v_n) = \langle v_1, v_2, \ldots, v_n \rangle
+$$
+
+The first of these is called the \textbf{row vector} representation and the second the \textbf{column vector} representation. The row and column vector notations are often done with parentheses rather than square brackets. Vector addition and subtraction and scalar multiplication couldn't be defined more naturally.
+
+\begin{definition}[Arithmetic on Vectors]
+	Let $\vec{u}$ and $\vec{v}$ be vectors and $c$ a scalar. Then
+	$$
+	\vec{u} + \vec{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n+v_n \end{bmatrix}\:\:\:\:
+	\vec{u} - \vec{v} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \\ \vdots \\ u_n-v_n \end{bmatrix}\:\:\:\:
+	c\vec{u} = \begin{bmatrix} cu_1 \\ cu_2 \\ \vdots \\ cu_n \end{bmatrix}
+	$$
+\end{definition}
+
+We now have two working definition of vectors: vectors as directed line segments and vectors as ordered lists. As you might expect, these definitions are equivalent---that is every vector-as-directed-line-segment can be represented as an ordered list and every vector-as-order-list can be represented as a directed line segment.
+
+The way we get between these two representations is by what is called a \textbf{basis}, which we will introduce rather informally here and present a more detailed treatment later. For now, we'll say a basis in $n$-dimensional space is a set of any $n$ vectors\footnote{Here, vectors-as-directed-line-segments} $\vec{v}_1, \vec{v}_2, \vec{v}_3, \ldots , \vec{v}_n$ such that I can make any $n$-dimensional vector $\vec{u}$ by going some amount $c_1$ in the $\vec{v}_1$ direction, some amount $c_2$ in the $\vec{v}_2$ direction, etc. In more mathematical terms, a basis is a set of vectors $\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \ldots , \vec{v}_n\}$ such that any vector $\vec{u}$ can be written as
+
+$$
+\vec{u} = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n
+$$
+
+The conversion between vectors as directed line segments to vectors as ordered lists is then just
+
+$$
+\underbrace{\vec{u} = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n}_{\text{Vector as direct line sergment}} \mapsto \underbrace{(c_1, c_2, c_3, \ldots, c_n)}_{\text{Vector as ordered list}}
+$$
+
+And the conversion from vectors as ordered lists to vectors as directed line segments is just 
+
+$$
+ \underbrace{(c_1, c_2, c_3, \ldots, c_n)}_{\text{Vector as ordered list}} \mapsto \underbrace{\vec{u} = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n}_{\text{Vector as direct line sergment}}
+$$
+
+We call the coefficients $c_1, c_2, \ldots, c_n$ the \textbf{coordinates} of $\vec{u}$ with respect to the basis $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$. We normally pick our basis vectors to perpendicular vectors with length 1. In 2 or 3 dimensions, we call the line our first basis vector is on the $x$ axis, the the line our second basis vector is on the $y$ axis, and the line our first basis vector is on the $z$ axis. We use $\hat{\imath}$, $\hat{\jmath}$, and $\hat{k}$ to denote the $x$, $y$, and $z$ basis vectors respectively. When we're in a higher dimensional space, we often use $\hat{e}_1, \hat{e}_2, \hat{e}_3, \ldots, \hat{e}_n$ for our basis.
+
+Notice that the conversion from vectors-as-directed-line-segments to vectors-as-ordered-lists is not unique: if we pick a different set of basis vectors, the conversion between vectors-as-directed-line-segments to vectors-as-ordered-lists will be different. Thus, when we're converting between these two representations we always need to specify which basis we're using.
+
+\begin{remark}
+	If every vector-as-directed-line-segment can be represented as a vector-as-ordered-list and visa versa, does it mean that these two objects are the same thing? Many would say yes. We shall take the somewhat controversial position that they \textbf{\textit{aren't}} the same thing. We choose to make this distinction since directed line segments have an existence entirely seperate from their coordinate representation with respect to a particular set of basis vectors. We will call the set of vectors as directed line segments $\mathbb{L}^n$ to distinguish it from the set of vectors as ordered lists $\mathbb{R}^n$.
+\end{remark}
+
+\section{A Mathematician's Perspective: Vectors as Objects Satisfying Axioms}
+
+Suppose you have a friend who excitedly comes up to you and claims to have invented a new number system. He says, in his number system, that there is a smallest number ``orez.'' Each number has a unique successor:``orez'''s successor is ``eno'' and ``eno'''s successor is ``owt''. Further, you can add numbers together: ``orez + owt = owt'' and ``eno + owt = eerht''.  The number ``orez'' has the unique property that for any number $n$ ``orez + $n$ = $n$''.
+
+Clearly, your friend has not invented a new system at all but rather just relabeled the counting numbers with new funny names. This admittedly silly situation speaks to an important point, however. When we do mathematics, we don't care what an object ``is'' in some fundamental sense, but \textit{what its properties are}. We could just as easily do number theory using the numbers ``0, 1, 2, 3, $\ldots$'' as ``orez, eno, owt, eerht, $\ldots$''.
+
+So we return to the question of ``What is a vector?'' one more time. To a mathematician, what is a vector? \textit{Something that satisfies the properties of a vector.} Which properties? \textit{The properties outlined in Theorem \ref{thm:vecprops}.}
+
+More precisely, lets consider a set of objects which I will call $V$. We say the elements of $V$ are vectors and the entire set $V$ is a \textbf{vector space}. I define an operation $+$ that takes two vectors from $V$ and gives me back another vector in $V$. We also define an operation $\cdot$ that takes a scalar from $\mathbb{R}$ and a vector from $V$ and returns another vector in $V$. Whatever my operations are, I make sure they satisfy all the properties in Theorem \ref{thm:vecprops}.
+
+\begin{definition}\label{def:vecspace}
+	A \textbf{vector space} is a set $V$, whose elements are called vectors, along with operations $+$ and $\cdot$ such that:
+	\begin{enumerate}
+		\item For all $\vec{u}, \vec{v} \in V$, $\vec{u} + \vec{v} \in V$
+		\item For all $\vec{u}, \vec{v} \in V$, $\vec{u} + \vec{v} = \vec{v} + \vec{u}$
+		\item For all $\vec{u}, \vec{v}, \vec{w} \in V$,  $(\vec{u}+\vec{v}) + \vec{w} = \vec{u} + (\vec{v}+\vec{w})$
+		\item There is a vector $\vec{0}$ such that, for all $\vec{u}\in V$, $\vec{u} + \vec{0} = \vec{u}$
+		\item For every vector $\vec{u}\in V$ there is a vector $-\vec{u} \in V$ such that $\vec{u} + (-\vec{u}) = \vec{0}$
+		\item For all $\vec{v} \in V$, $c\vec{u} \in V$
+		\item For all $c,d \in \mathbb{R}$ and $\vec{u} \in V$, $(cd)\vec{u} = c(d\vec{u})$
+		\item For all $c,d \in \mathbb{R}$ and $\vec{u} \in V$, $(c+d)\vec{u} = c\vec{u} + d\vec{u}$
+		\item For all $c\in \mathbb{R}$ and $\vec{u},\vec{v} \in V$, $c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}$
+		\item For all $\vec{u} \in V$, $1\vec{u} = \vec{u}$
+	\end{enumerate}
+\end{definition}
+
+The advantage of doing is are initially unclear. We've taken two perfectly good definitions of vectors that are tangible and concrete and replaced them by a much more abstact definition. The advantage of the mathematical definition is that if we \textit{only} use the 10 properties in the definition, any theorems we prove about one vector space applies to \textit{every} vector space. It turns out that there are many other interesting vector spaces other than just $\mathbb{R}^n$ and $\mathbb{L}^n$. Let's run through some examples of vector spaces.
+
+\begin{example}
+	$\mathbb{R}^n$ and $\mathbb{L}^n$ are both vector spaces. Of special note, $\mathbb{R}$ is a vector space.
+\end{example}
+
+\begin{example}
+	The set of polynomials of degree less than or equal to $n$ form a vector space. We will call this space $\mathbb{P}_n$. The set of all polynomials also forms a vector space, which we will call $\mathbb{P}$.
+\end{example}
+
+\begin{example}
+	Ok this one's a bit strange. We're gonna call this one $\mathbb{R}^*$. The elements of $\mathbb{R}^*$ are just positive real numbers. The ``addition'' operator (which I will denote by $\oplus$) is \textit{multiplication} of real numbers. So $a \oplus b = a \times b$. The ``scalar multiplication'' operator (which I will denote by $\odot$) is \textit{exponentiation}. So $c \odot a = a^c$. Now you don't just have to believe me when I say that, we can prove it. 
+\end{example}
+
+\begin{proposition}
+	$\mathbb{R}^*$ is a vector space.
+\end{proposition}
+
+\begin{proof}
+	Let $x,y,z$ be in $\mathbb{R}^*$ (these are our ``vectors'') and $c,d$ be scalars.
+	\begin{enumerate}[label={(\arabic*)}]
+		\item $x \oplus y = xy$ which is another positive real number. 
+		\item $x \oplus y = xy = yx = y \oplus x$
+		\item $x \oplus (y \oplus z) = x\oplus(yz) = x(yz) = (xy)z = (x\oplus y)z = (x\oplus y)\oplus z$
+		\item This one's really strange. In $\mathbb{R}^*$ our ``0'' element (or additive inverse) is actually 1! To see this, simply take $x \oplus 1 = x \times 1 = x$.
+		\item The inverse of $x$ is just $x^{-1}$. To verify this, simply take $x \oplus x^{-1} = xx^{-1} = 1$. (Remember $1$ is our additive inverse.)
+		\item $c \odot x = x^c$ which is another positive real number.
+		\item $(cd)\odot x = x^{cd} = (x^c)^d = d\odot x^c = d\odot (c\odot x)$
+		\item $c \odot (x \oplus y) = c \odot (xy) = (xy)^c = x^cy^c = x^c\oplus y^c = (c\odot x)\oplus(c\odot y)$
+		\item $(c + d) \odot x = x^{c+d} = x^cx^d = x^c \oplus x^d = (c\odot x)\oplus(d\odot x)$
+		\item $1 \odot x = x^1 = x$
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	Notice that when we add and multiply scalars to scalars we use the normal arithmetic operations $+$ and $\times$. It's only when we add ``vectors'' and multiply vectors by scalars that we use our vector operations $\oplus$ and $\odot$.
+\end{remark}
+
+\begin{example}
+	The set of functions from any set $S$ to the real numbers forms a vector space. Call this vector space $S^\mathbb{R}$.
+\end{example}
+
+\begin{example}
+	The set of continuous functions on an interval $[a,b]$ is a vector space. This vector space is denoted $C([a,b])$ or $C^0([a,b])$. The set of functions continuous on the entire real line is denoted $C(-\infty,\infty)$ or $C^0(-\infty,\infty)$.
+\end{example}
+
+\begin{example}
+	The set of solutions to the differential equation
+	$$
+	y''(x) + p(x)y'(x) + q(x)y(x) = 0
+	$$
+	Is a vector space.
+\end{example}
+
+\begin{example}
+	Consider the system of $m$ linear equations in $n$ unknowns
+	\begin{align*}
+		a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n}x_n &= 0 \\
+		a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n}x_n &= 0\\
+		&\:\:\vdots \\
+		a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn}x_n &= 0
+	\end{align*}
+	Consider the vector $\vec{x} = (x_1, x_2, \ldots, x_n)$ to be a \textbf{solution} of the linear equation if the $x_1, x_2, \ldots, x_n$ satisfy the linear system (make all the equations true) when plugged into the system. The set of solutions to this linear system is a vector space.
+\end{example}
+
+\begin{remark}
+	If any of the right hand sides of the linear system were to be made non-zero, the solutions would no longer form a vector space. A system of linear equations is said to be \textbf{homogenous} if all the right hand sides are 0, and \textbf{inhomogenous} otherwise.
+\end{remark}
+
+\begin{problem}
+	Often, a non-example of a mathematical idea can be just as elucidating as an example of it. The following sets fail to be vector spaces. Which of the axioms do they fail? Which of them do they not fail?
+	\begin{enumerate}
+		\item The set of integers $\mathbb{Z}$. (Hint: Think about scalar multiplication.)
+		\item Solutions to an \textit{inhomogenous} linear equation under normal vector addition and scalar multiplication.
+		\item Solutions to the differential equation $y''(x) + p(x)y'(x) + q(x)y(x) = r(x)$ where $r(x) \not\equiv 0$.
+		\item Polynomials of degree $n$. (Hint: How is this space different that $\mathbb{P}_n$?)
+		\item Let $\frak{R}$ be the set of all rotations of a point about the origin in two-dimensional space. Addition of rotations is such succesive application of rotations. For example, a $60\degree$ rotation followed by a $30\degree$ rotation is a $90\degree$ rotation. Scalar multiplication by $c$ means apply the rotation $c$ times. For example, $2.5$ times a rotation of $30\degree$ is $75\degree$. (Hint: A rotation of $0\degree$ equals a rotation of $360\degree$ equals a rotation of $720\degree$ and so on.)
+	\end{enumerate}
+	Invent a non-example of a vector space yourself. What axioms does it fail and not fail?
+\end{problem}
+
+\begin{problem}
+	Pick a vector space from the text that we didn't prove was a vector space and prove it is a vector space.
+\end{problem}
+
+\begin{problem}
+	A sequence is just a list of numbers. We use the notation $(a_n)$ to denote the sequence $a_1, a_2, \ldots$. In this notation $a_1$ is the first number, $a_2$ is the second, and so on. 
+	\begin{enumerate}
+		\item Prove the set of sequences forms a vector space under the vector addition $(a_n) + (b_n) = (a_n + b_n)$ and scalar multiplication $c(a_n) = (ca_n)$.
+		\item A sequence $(a_n)$ is said to converge to $0$ if
+		$$
+		\lim_{n\to\infty} a_n = 0
+		$$
+		Prove the set of sequences converging to 0 forms a vector space.
+	\end{enumerate}
+\end{problem}
+
+\section{Subspaces}
+
+As we saw in the previous section, the solutions to a homogeneous system of linear equations in $n$ unknowns is a vector space. We represent these solutions by vectors in $\mathbb{R}^n$. But not every vector in $\mathbb{R}^n$ is a solution to the system of linear equations.\footnote{Unless \textit{all} the coefficients $a_{ij}$ are 0.} So what we have is a smaller vector space contained within a larger vector space. Smaller vector spaces contained within larger vector spaces is a very important concept in linear algebra, and motivates the following definition:
+
+\begin{definition}
+	Let $V$ be a vector space. A subset\footnote{Recall that a set $W$ is a subset of a set $V$ if every element in $W$ is in $V$. When $W$ is a subset of $V$, we write $W \subseteq V$.} $W$ of $V$ is said to be a \textbf{(vector) subspace} if $W$ is also a vector space with the same vector operations $+$ and $\cdot$ as $V$.
+\end{definition}
+
+So we're led naturally to a question: given a set $W \subseteq V$, how can we check if $W$ is a subspace? Well we just need to check the 10 properties stated in Definition \ref{def:vecspace}. In fact, we only need to check axioms 1 and 6, the so-called closure axioms, since axioms 2-5 and 7-10 are satisfied since $W$ uses the same vector operations $+$ and $\cdot$ as $V$.
+
+\begin{theorem}
+	A set $W \subseteq V$ is a subspace of $V$ if, and only if,
+	\begin{enumerate}
+		\item For every $\vec{u}, \vec{v} \in W$, $\vec{u} + \vec{v} \in W$, and
+		\item For every $\vec{u} \in W$ and every scalar $c \in \mathbb{R}$, $c\vec{u} \in W$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+	If $W$ is a subspace of $V$, $\vec{0} \in W$.
+\end{corollary}
+
+\begin{proof}
+	Let $\vec{w}$ be any vector in $W$. Then, by property 6, $0\vec{w} = \vec{0} \in W$.
+\end{proof}
