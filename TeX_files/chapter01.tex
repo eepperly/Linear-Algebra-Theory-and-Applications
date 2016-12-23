@@ -140,7 +140,7 @@ In the \verb|C++| programming language, a vector is a container object which sto
 Mathematicians, always fond of notational shorthand, use $\mathbb{R}$ to denote the set of real numbers. Since $n$-dimensional vectors are just lists of $n$ real numbers, we use the notation $\mathbb{R}^n$ to denote the set of all $n$-dimensional vectors. Several notation are used for $n$-dimensional vector. Let $\vec{v}$ be an $n$-dimensional vector. Then $v_1$ is the first element, $v_2$ is the second element, and $v_n$ is the $n$th element. The vector $\vec{v}$ is notated by any of the following
 
 $$
-\vec{v} = \begin{bmatrix} v_1 & v_2 & \cdots & v_n \end{bmatrix} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = (v_1, v_2, \ldots, v_n) = \langle v_1, v_2, \ldots, v_n \rangle
+\vec{v} = \begin{bmatrix} v_1 & v_2 & \cdots & v_n \end{bmatrix} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = (v_1, v_2, \ldots, v_n) = \langle v_1, v_2, \ldots, v_n \rangle\footnote{This last notation is unfortunate because it conflicts with our notation for span}
 $$
 
 The first of these is called the \textbf{row vector} representation and the second the \textbf{column vector} representation. The row and column vector notations are often done with parentheses rather than square brackets. Vector addition and subtraction and scalar multiplication couldn't be defined more naturally.
@@ -323,6 +323,10 @@ So we're led naturally to a question: given a set $W \subseteq V$, how can we ch
 	\end{enumerate}
 \end{theorem}
 
+\begin{remark}
+	Axioms 1 and 6 are often referred to as the \textbf{closure} axioms.This is because 
+\end{remark}
+
 \begin{corollary}
 	If $W$ is a subspace of $V$, $\vec{0} \in W$.
 \end{corollary}
@@ -330,3 +334,164 @@ So we're led naturally to a question: given a set $W \subseteq V$, how can we ch
 \begin{proof}
 	Let $\vec{w}$ be any vector in $W$. Then, by property 6, $0\vec{w} = \vec{0} \in W$.
 \end{proof}
+
+\begin{example}
+	Let $V$ be any vector space. Then the set containing the zero vector, $\{\vec{0}\}$ is a subspace of $V$. This is the so-called \textbf{trivial subspace} of $V$. $V$ is also a subspace of itself. A subspace that is neither $V$ nor the trivial subspace is said to be a proper subspace.
+\end{example}
+
+Before we look at subspaces in more abstract vector spaces, let's think about what subspaces exist in the space of vectors-as-directed-line-segments. We'll begin with $\mathbb{L}^2$. As always, we have the trivial subspace and $\mathbb{L}^2$ itself. So let's suppose we have a subspace $W$ with a vector $\vec{w}$ in it. Since $W$ is closed under scalar multiplication, all the vectors on the line containing $\vec{w}$ must be in $W$. So the line containing $\vec{w}$ is the smallest subspace containing $\vec{w}$. Suppose now that we have another vector $\vec{v}$ in $W$ that is not on the line containing $\vec{w}$, then we must have $W = \mathbb{L}^2$. Can you convince yourself why?\footnote{Developing a strong geometric intuition for the algebra of $\mathbb{L}^n$ can be challenging business, but is ultimately deeply rewarding for studying this subject. Take advantage of the fact that you can draw two-dimensional vectors on a sheet of paper.} In summary, the only subspaces of $\mathbb{L}^2$ are: the origin, lines containing the origin, and $\mathbb{L}^2$ itself.
+
+Very similarly, one can deduce that the subspaces of $\mathbb{L}^3$ are precisely the origin, the lines containing the origin, the planes containing the origin, and $\mathbb{L}^3$ itself. What's striking about this result is how ``boring'' the subspaces of $\mathbb{L}^3$ are. The only proper subspaces you have are lines and planes. And a plane through the origin is starting to sound a lot like $\mathbb{L}^2$, which can be though of as a plane. So what we have is that all the proper subspaces of $\mathbb{L}^3$ are either planes that look like $\mathbb{L}^2$ or lines that look like $\mathbb{L}^1$. Ok here are some more ``abstract'' examples of subspaces. 
+
+\begin{example}
+	$\mathbb{P}_1$ is a subspace of $\mathbb{P}_2$ which is a subspace of $\mathbb{P}_3$ and so on. $\mathbb{P}_n$ is a subspace of $\mathbb{P}$ for all $n$.
+\end{example}
+
+\begin{example}
+Let $\alpha \in [a,b]$ be a real number. Then the set of all continuous functions $f$ such that $f(\alpha) = 0$ is a subspace of $C([a,b])$.
+\end{example}
+
+Suppose we have two subspaces $U$ and $W$ of a vector space $V$. Notice both $U$ and $W$ contain the trivial subspace $\{\vec{0}\}$ as a subspace. We might ask the question if there is any ``larger'' subspace of $V$ that is both a subspace of $U$ and a subspace of $W$. We might be even bolder and ask what the \textit{largest} subspace of both $W$ and $U$ is. This question is answered by the next theorem.
+
+\begin{theorem}
+	If $U$ and $W$ are subspaces of a vector space $V$, then $U \cap W$\footnote{Recall that $U \cap W$ is the set of all elements that are members of both $U$ and $W$.} is also a subspace of $V$. Moreover, $U \cap W$ is the largest subspace of $V$ that is a subspace of both $U$ and $W$ in the sense that if $Z$ is a subspace of $U$ and $W$ then $Z \subseteq U \cap W$.
+\end{theorem}
+
+\begin{proof}
+	As always, to check $U \cap W$ is a subspace, we must simply check the closure axioms. Let $\vec{v}_1$ and $\vec{v}_2$ be vectors in $U \cap W$. Then $\vec{v}_1$ and $\vec{v}_2$ are in $W$ (by definition of $\cap$) and so $\vec{v}_1 + \vec{v}_2$ is in $W$ (because $W$ is a subspace.) Similarly, $\vec{v}_1$ and $\vec{v}_2$ are in $U$ so $\vec{v}_1+\vec{v}_2$ is in $U$. Since $\vec{v}_1 + \vec{v}_2 \in U$ and $\vec{v}_1+\vec{v}_2 \in W$, we have $\vec{v}_1 + \vec{v}_2 \in U \cap W$ (by definition of $\cap$.) Closure under scalar multiplication is very similar and is left to you to check for yourself.
+		
+	Let $Z$ be a subspace of $U$ and $W$. Let $\vec{z}$ be in $Z$. Then since $Z$ is a subspace of $U$ and $W$ we must have $\vec{z} \in U$ and $\vec{z} \in W$. So $\vec{z} \in U \cap W$. Thus $Z \subseteq U \cap W$ (by definition of $\subseteq$.)\footnote{Get used to these ``maximality'' or ``minimality'' arguments because they are important for the next section.}
+\end{proof}
+
+If we consider $\mathbb{L}^3$ as an example, the fact that intersection of subspaces is a subspace is very intuitive. Imagine intersecting two planes that go through the origin. If the planes are coincide with each other, we get another plane, and if the planes don't coincide with each other, we get a line. Since lines and planes going through the origin are subspaces in $\mathbb{L}^3$, we have intersection of subspaces is subspaces.
+
+A very natural follow-up question to ``What is the largest subspace that is contained within both $U$ and $W$?'' is ``What is the smallest subspace that contains both $U$ and $W$?'' To answer this question, we need a new definition.
+
+\begin{definition}[Addition of Subspaces]
+	If $U$ and $W$ are subspaces of $V$, then $U + W$ is the set
+	$$\{ \vec{v} \in V : \vec{v} = \vec{u} + \vec{w} \text{ for some } u \in U \text{ and } w \in W \}$$
+	That is, it is the set of obtained by adding one element from $U$ and one element from $W$.
+\end{definition}
+
+\begin{theorem}\label{thm:addsubspaces}
+	If $U$ and $W$ are subspaces then $U + W$ is a subspace of $V$ and $U+W$ is the smallest subspace that contains both $U$ and $W$ in the sense that if $Z$ is a subspace containing both $U$ and $W$ then $U + W \subseteq Z$.
+\end{theorem}
+
+\begin{problem}
+	Suppose we have a set of objects $S$ a relation $\preceq$. We think of the relation as ``comparing'' objects in $S$ so that either $s \preceq s'$ or $s \not\preceq s'$ (read $s$ precedes $s'$ or $s$ does not precedes $s'$).\footnote{Here $'$ has no relation to the derivative from calculus. $s$ and $s'$ are simply two variables.} We say $\preceq$ is a \textbf{partial ordering} if three things are true:
+	\begin{enumerate}
+		\item $s \preceq s$ for all $s \in S$ (Reflexive)
+		\item $s \preceq s'$ and $s' \preceq s$ if and only if $s = s'$ (Antisymmetry)
+		\item $s \preceq s'$ and $s' \preceq s''$ implies $s \preceq s''$ (Transivity)
+	\end{enumerate}
+	The less-than-or-equal-to relation $\leq$ is a partial ordering on the set $\mathbb{R}$ and the subset relation $\subseteq$ is a partial ordering on any collection of sets. \textit{Define }$U \preceq W$ if $U$ is a subspace of $W$. Show that $\preceq$ is a partial ordering on the subspaces of $V$ (by showing it satisfies those three properties.)
+	
+	A partial ordering is said to be \textbf{total} if, for every two elements $s,s' \in S$ we have $s \preceq s'$ or $s' \preceq s$. Find vector spaces $V$ for when $\preceq$ is and isn't total.
+\end{problem}
+
+\begin{problem}
+	Prove Theorem \ref{thm:addsubspaces}.
+\end{problem}
+
+\begin{problem}
+	Let $V$ be a vector space and let $U$ and $W$ be subspaces of $V$. Prove the following facts about addition of subspaces:
+	\begin{enumerate}
+		\item $U + U = U$
+		\item $U + W = W + U$
+		\item $U + V = V$
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Let $V$ be a vector space and let $U$ and $W$ be subspaces of $V$. Define $U - W$ by
+	$$U - W = \{ \vec{v} \in V : \vec{v} = \vec{u} - \vec{w} \text{ for some } u \in U \text{ and } w \in W \}$$
+	Show $U - W = U + W$.
+\end{problem}
+
+\section{Span, Basis, and Linear Independence}
+
+\begin{remark}
+	The study of mathematics is full of so-called ``equivalent conditions''. If we say condition 1 and condition 2 are equivalent, we mean that any object satisfying condition 1 must also satisfy condition 2, and any object satisfying condition 2 must also satisfy condition 1. 
+\end{remark}
+
+Vector spaces can be tricky beasts to wrangle because they have an infinite number of vectors is them.\footnote{There is one vector space with a finite number of elements in it. Can you think of what it is?} What would be helpful is if we could find some way of expressing vectors in some way by only a \textit{finite} number of vectors, because finite sets are much easier to deal with than infinite sets.
+
+Say we have a set $S$ of vectors. This set may have an either a finite or infinite number of vectors in it. Let $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$ be a set of vectors in $S$ and let $c_1, c_2, \ldots, c_n$ be scalars. Then
+
+$$
+\vec{u} = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n 
+$$
+
+is said to be a \textbf{linear combination} of the vectors in $S$.\footnote{Though the set $S$ is allowed to be either finite or infinite, the vectors $\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n$ must be a finite collection of vectors. What would it even mean to add up an infinite number of vectors?} So if $S = \{v_1,v_2,v_3\}$, then $\vec{v}_1$, $\vec{v}_1+\vec{v}_2+\vec{v}_3$, and $\pi \vec{v}_1 + e \vec{v}_2$ are all linear combinations of $S$. A natural question to ask is: Given a set $S$, what are all the possible linear combinations? We have a name for the set of all possible linear combinations; we call it the \textbf{span}.
+
+\begin{definition}
+	Let $S$ be a set of vectors from a vector space $V$. Then the \textbf{span} of $S$, denoted $\laspan{S}$, is
+	$$
+	\laspan{S}= \{ \vec{v} \in V : \vec{v} \textnormal{ is a linear combination of the vectors in }S\}
+	$$
+	If a set $S'$ is a subset of $\laspan{S}$ then we say the set $S$ \textbf{spans} $S'$.\footnote{We also make the quite strange definition that the span of the empty set is the trivial subspace. That is, $\laspan{ \emptyset } = \{\vec{0}\}$.}
+\end{definition}
+
+\begin{theorem}
+	The span of $S$ is a subspace of $V$. Moreover, $\laspan{S}$ is the smallest subspace containing $S$ in the sense that if $W$ is a subspace then $S \subseteq W$ implies $\langle S \rangle \subseteq W$.
+\end{theorem}
+
+\begin{proof}
+	As always, to prove $\langle S \rangle$ is a subspace, we must check the closure axioms. First let $\vec{u}_1$ and $\vec{u}_2$ be in $\langle S \rangle$. Then, by definition of span, there are vectors $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$ and $\vec{w}_1,\vec{w}_2,\ldots,\vec{w}_m$ in $S$ and scalars $c_1, c_2, \ldots, c_n$ and $k_1, k_2, \ldots, k_m$ such that
+	\begin{align}
+	\vec{u}_1 &= c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n \\
+	\vec{u}_2 &= k_1 \vec{w}_1 + k_2 \vec{w}_2 + \cdots + k_m \vec{w}_m
+	\end{align}
+	So then
+	\begin{equation}
+	\vec{u}_1 + \vec{u}_2 = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \cdots + c_n \vec{v}_n + k_1 \vec{w}_1 + k_2 \vec{w}_2 + \cdots + k_m \vec{w}_m \label{eq:closureunderaddition}
+	\end{equation}
+	Notice that \eqref{eq:closureunderaddition} is saying that $\vec{u}_1 + \vec{u}_2$ is, itself, a linear combination of vectors in $S$. Therefore, $\vec{u}_1 + \vec{u}_2$ is in the span of $S$. Now to check closure under scalar multiplication, we consider
+	
+	\begin{align}
+	k\vec{u}_1 &= k(c_1\vec{v}_1 + c_2\vec{v}_2 + \cdots + c_n\vec{v}_n) \nonumber \\
+					&= (kc_1) \vec{v}_1 + (kc_2) \vec{v}_2 + \cdots + (kc_n) \vec{v}_n
+	\end{align}
+	
+	Which is another linear combination of vectors so $k\vec{u}_1 \in \langle S \rangle$. Therefore, $\langle S \rangle$ is a subspace of $V$.
+	
+	Now let $W$ be a subspace of $V$ such that $S \subseteq W$. Let $\vec{x}$ be any vector in the span of $S$. Then, by definition, $\vec{x}$ must be of the form
+	
+	\begin{equation}
+		\vec{x} = c_1 \vec{v}_1 + c_2\vec{v}_2 + \cdots + c_n \vec{v}_n
+	\end{equation}
+	
+	For vectors $\vec{v}_1, \ldots, \vec{v}_n$ in $S$. Then $\vec{x}$ must be in $W$ because $W$, a subspace, is closed under addition and scalar multiplication and contains all the vectors $\vec{v}_1,\ldots,\vec{v}_n$. Thus, $\langle S \rangle \subseteq W$.
+\end{proof}
+
+Before we delve further into the span into the abstract let's take a moment to think about the span geometrically for $\mathbb{L}^2$ and $\mathbb{L}^3$. Remember, the span is the smallest subspace containing a set of vectors. So the span of a single vector $\vec{v}$ is just the line going through the origin and $\vec{v}$. The span of a vector $\vec{v}$ and another vector $\vec{w}$ not on the span of $\vec{v}$ is the plane containing both $\vec{v}$ and $\vec{w}$. Thus, if we are in $\mathbb{L}^2$, the set $\{\vec{v},\vec{w}\}$ spans $\mathbb{L}^2$. If we are in $\mathbb{L}^3$, then set $\{ \vec{v}, \vec{w} \}$ is a plane going through the origin, $\vec{v}$, and $\vec{w}$. If we add another vector $\vec{x}$ not on $\langle \{ \vec{v}, \vec{w} \} \rangle$, then $\{ \vec{v}, \vec{w}, \vec{x} \}$ spans $\mathbb{L}^3$.
+
+At the beginning of this section, we posed a simple problem: find a way of expressing the infinite vectors in a vector space by some combination of a finite number of vectors. And here we have an answer: just find a finite spanning set for a vector space. For example, the space $\mathbb{R}^2$ is spanned by $S = \{ (0,1), (1,0) \}$, which means every vector in $\mathbb{R}^2$ can be expressed as a linear combination of $(0,1)$ and $(1,0)$. To see this, try to write $(5,2)$ as a linear combination of $(0,1)$ and $(1,0)$.
+
+But there is a problem with using mere spanning sets to express all the vectors in our space. To see this, notice $S_1 = \{ (1,0), (0,1) \}$ and $S_2 = \{ (3,0), (1,2), (5,7), (10,12) \}$ both span $\mathbb{R}^2$. So really, we don't want to find just a spanning set for our vector space, but a \textit{minimal spanning set}.\footnote{The choice of ``minimal'' rather then ``smallest'' is intentional. Saying smallest would imply that there is some ``smallest'' spanning set, which is simply not true. Both $\{ (1,0), (0,1) \}$ and $\{(5,0), (1,2)\}$ are both minimal spanning sets, and one is not smaller (in terms of numbers of elements) then the other.}
+
+\begin{definition}\label{def:basis}
+	A \textbf{basis} for a vector space $V$ is a \textit{minimal spanning set} for $V$. In other words, a basis is a set $\beta$ such that $\langle \beta \rangle  = V$ but $\langle S \rangle \ne V$ for any proper subset $S \subset \beta$.
+\end{definition}
+
+\begin{example}
+	$\{1\}$ is a basis for $\mathbb{R}$. In fact, if $a$ is any non-zero real number, than $\{a\}$ is a basis for $\mathbb{R}$.
+\end{example}
+
+\begin{example}
+	$\{e_1, e_2, \ldots, e_n\}$ is a basis for $\mathbb{R}^n$, where $e_i$ is a vector of all zeros except a 1 in position $i$. For example, in $\mathbb{R}^3$, $e_1 = (1,0,0)$, $e_2 = (0,1,0)$, and $e_3 = (0,0,1)$. This basis is called the standard basis of $\mathbb{R}^n$.
+\end{example}
+
+\begin{example}
+	$\{1,x,x^2,\ldots,x^n\}$ is a basis for $\mathbb{P}_n$, the space of all polynomials of degree less than or equal to $n$. While beyond the scope of this discussion, the space $\mathbb{P}$ of \textit{all} polynomials does not have a \textit{finite} basis, but does have the basis $\{1,x,x^2,\ldots\}$.
+\end{example}
+
+While Definition \ref{def:basis} is an \textit{intuitive} characterization of what a basis is, it's quite an annoying definition to actually \textit{check} if a particular set $\beta$ is a basis. To find an equivalent, and much more computationally useful way of determining whether a given spanning set is a basis, we introduce the notion of \textit{linear (in)dependence}.
+
+\begin{definition}
+	A set $S$ is linearly independent if no vector in $S$ can be written as a linear combination of the other vectors in $S$.
+\end{definition}
+
+\begin{problem}
+	Show that if $S \subseteq S'$, then $\langle S \rangle$ a subspace of $\langle S' \rangle$.
+\end{problem}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  3 DEC 2016 23:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  21 DEC 2016 09:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -864,18 +864,18 @@ Package amsthm Warning: Unknown theoremstyle `theorem' on input line 17.
 (./TeX_files/chapter02.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -969,22 +969,22 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \celsius on input line 36.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 36.
+LaTeX Info: Redefining \celsius on input line 38.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 38.
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 36.
-Package gensymb Info: Using \Omega for \ohm on input line 36.
+LaTeX Info: Redefining \ohm on input line 38.
+Package gensymb Info: Using \Omega for \ohm on input line 38.
 
 Package gensymb Warning: Not defining \micro.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1050,29 +1050,29 @@ ead on input line 287.
 LaTeX Font Info:    Try loading font information for U+euf on input line 287.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [10]) [11]
+) [10] [11]
+[12] [13] [14] [15]) [16]
 \openout2 = `./TeX_files/chapter02.aux'.
 
-
-(./TeX_files/chapter02.tex [12
-
-
-
-]
+ (./TeX_files/chapter02.tex
 Chapter 2.
-) [13] [14
+) [17
+
+
+
+] [18
 
 
 ] (./main.aux (./TeX_files/chapter00.aux) (./TeX_files/chapter01.aux) (./TeX_fi
 les/chapter02.aux)) ) 
 Here is how much of TeX's memory you used:
- 14808 strings out of 493014
- 283303 string characters out of 6133351
- 347486 words of memory out of 5000000
- 17998 multiletter control sequences out of 15000+600000
+ 14812 strings out of 493014
+ 283363 string characters out of 6133351
+ 347527 words of memory out of 5000000
+ 18002 multiletter control sequences out of 15000+600000
  16336 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,68p,753b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,68p,1132b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
@@ -1087,17 +1087,17 @@ r17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
 .pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on main.pdf (18 pages, 240011 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (22 pages, 274925 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
+ 163 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
